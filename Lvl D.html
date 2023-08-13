@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font: 300 18px/1.5 "Playfair display", sans-serif;
+            background-color: #292b2d;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display&display=swap');
+
+        .bgimg-1,
+        .bgimg-2,
+        .bgimg-3,
+        .bgimg-4,
+        .bgimg-5,
+        .bgimg-6,
+        .bgimg-7,
+        .bgimg-8 {
+            position: relative;
+            opacity: 0.65;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .bgimg-1 {
+            background-image: url("https://images.pexels.com/photos/3069875/pexels-photo-3069875.jpeg?cs=srgb&dl=pexels-jack-redgate-3069875.jpg&fm=jpg&_gl=1*12w62yr*_ga*MTQ3ODQ3NjQ3MS4xNjc4MjQ2ODQ3*_ga_8JE65Q40S6*MTY4NDIyNjE0Mi4xMy4xLjE2ODQyMjYzMDEuMC4wLjA.");
+            min-height: 100%;
+        }
+
+        .bgimg-2 {
+            background-image: url("https://panoramaglasslodge.com/wp-content/uploads/2021/04/11.jpg");
+            min-height: 400px;
+        }
+
+        .bgimg-3 {
+            background-image: url("https://panoramaglasslodge.com/wp-content/uploads/2021/01/farbiger-7.jpg");
+            min-height: 400px;
+        }
+
+        .bgimg-4 {
+            background-image: url("https://imgcap.capturetheatlas.com/wp-content/uploads/2017/12/FOM_1793.jpg");
+            min-height: 100%;
+        }
+
+        .bgimg-5 {
+            background-image: url("https://idsb.tmgrup.com.tr/ly/uploads/images/2022/02/15/182727.jpg");
+            min-height: 100%;
+        }
+
+        .bgimg-6 {
+            background-image: url("https://assets.website-files.com/63e25eaf5665c75bd6c9c8d7/63ecc48fa4cbbc798ac7f399_best-northern-lights-in-tromso.jpg");
+            min-height: 100%;
+        }
+
+        .bgimg-7 {
+            background-image: url("https://unsplash.com/photos/DmA484UHAzw/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjgxOTAwMDM3&force=true");
+            min-height: 100%;
+        }
+
+        .bgimg-8 {
+            background-image: url(Images/Im_Bg.png);
+            min-height: 100%;
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            color: #000;
+        }
+
+        .caption span.border {
+            background-color: #111;
+            color: #fff;
+            padding: 18px;
+            font-size: 25px;
+            letter-spacing: 10px;
+        }
+
+        .caption span.animate {
+            background-image: linear-gradient(
+            -225deg,
+            #DCBAA1 0%,
+            #377475 16.6%,
+            #273A41 24.9%,
+            #19181E 33.2%,
+            #65AF74 49.8%,
+            #028768 74.7%,
+            #001621 100%
+        );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+            @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .caption span.ayush{
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+            color: #fff;
+            animation: flip 2s infinite;
+            font-weight: bolder;
+            animation-delay: calc(.2s * var(--i))
+        }
+            @keyframes flip {
+            0%,80% {
+                transform: rotateY(360deg) 
+            }
+        } 
+
+        .animate span.title {
+            background-image: linear-gradient(
+            -225deg,
+            #241751 0%,
+            #02EDAB 24.9%,
+            #F8EA00 41.5%,
+            #FC4400 49.8%,
+            #04AA6D 60%,
+            #0C1B38 70.4%,
+            #FF49DF 100%
+        );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+            @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        h3 {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #111;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        @media only screen and (max-device-width: 1024px) {
+
+            .bgimg-1,
+            .bgimg-2,
+            .bgimg-3,
+            .bgimg-4,
+            .bgimg-5,
+            .bgimg-6,
+            .bgimg-7,
+            .bgimg-8 {
+                background-attachment: scroll;
+            }
+        }
+
+        .caption span.title1A {
+            font-family: 'Playfair Display', serif;
+            background-image: linear-gradient(
+            -225deg,
+            #A5A7A1 0%,
+            #442A1B 29%,
+            #9EB6C6 67%,
+            #493A37 100%
+        );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+            @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .caption span.title1B {
+            font-family: 'Playfair Display', serif;
+            background-image: linear-gradient(
+            -225deg,
+            #DCBAA1 0%,
+            #619498 29%,
+            #377475 67%,
+            #273A41 100%
+        );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+            @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .caption span.title2A {
+            font-family: 'Playfair Display', serif;
+            background-image: linear-gradient(
+            -225deg,
+            #28462D 0%,
+            #386C5E 29%,
+            #4D775E 67%,
+            #325B40 100%
+        );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+            @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .caption span.title2B {
+            font-family: 'Playfair Display', serif;
+            background-image: linear-gradient(
+            -225deg,
+            #19181E 0%,
+            #213E46 29%,
+            #65AF74 67%,
+            #357F56 100%
+        );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+            @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .caption span.title3A {
+            font-family: 'Playfair Display', serif;
+            background-image: linear-gradient(
+            -225deg,
+            #061822 0%,
+            #E87033 29%,
+            #2FB389 67%,
+            #092825 100%
+        );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+            @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .caption span.title3B {
+            font-family: 'Playfair Display', serif;
+            background-image: linear-gradient(
+            -225deg,
+            #032F38 0%,
+            #028768 29%,
+            #454D74 67%,
+            #001621 100%
+        );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+            @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .caption span.last {
+            font-family: 'Playfair Display', serif;
+            background-image: linear-gradient(
+            -225deg,
+            #004E90 0%,
+            #94E7CF 25%,
+            #054757 50%,
+            #012235 75%,
+            #010005 100%
+        );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+            @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .imglnk{
+            font-family: 'Montserrat', sans-serif;
+            background-image: linear-gradient(
+            -225deg,
+            #004E90 0%,
+            #94E7CF 25%,
+            #054757 50%,
+            #012235 75%,
+            #010005 100%
+        );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-weight: 300;
+        }
+
+            @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+    </style>
+    <title>Main</title>
+</head>
+
+<body>
+
+    <div id="top" style="background-color: #000; font-family: 'Playfair Display', serif;" class="bgimg-1">
+        <div class="caption">
+            <span class="border">
+                <span class="color">
+                    <span class="animate">HTML & CSS</span>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="animate" style="color: #ffffff;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <h3 style="text-align:center; color: #ffffff;font-family: 'Playfair Display', serif;">
+            <span class="title">The Northern Lights</span>
+        </h3>
+        <p style="font-family: 'Montserrat', sans-serif;">
+            The Northern Lights are a breathtaking display of vivid colors in the night sky that have encapsulated people for a long time. This phenomenon can be observed in the northern hemisphere, mostly in Scandinavian countries such as Norway, Finland, Sweden, or Iceland. The magic of the Northern Lights lies in their unpredictability and rarity. The lights are created by solar flares and collisions with the Earth's atmosphere, producing the well-known display of vibrant colors that dance across the sky. The colors range from shades of green to pink to purple, and sometimes even red or blue. The colors shift and change, creating a surreal atmosphere for the viewers. The beauty of the Northern Lights is a natural wonder that reminds us of the magnificence and mystery of our world, leaving a lasting impression on the few really lucky people who actually get the chance to experience it.
+        </p>
+        <p style="font-family: 'Montserrat', sans-serif;">
+            There are several hotels that offer guests the opportunity to witness the stunning beauty of this natural wonder. In this project, I have endeavored to highlight some of the most beautiful hotels, according to my personal opinion, with accompanying images. More details about all the hotels can be found in a table for your convenience at the end of this
+            webpage.
+        </p>
+    </div>
+
+
+    <div id="article" class="bgimg-2">
+        <div class="caption">
+            <span class="border"
+                style="background-color:transparent;font-size:25px;color: #ffffff; font-family: 'Playfair Display', serif;">
+                <a href="https://panoramaglasslodge.com/" style="text-decoration:none; color:inherit;" target="_blank">
+                    <span class="title1A">1. Panorama Glass Lodge</span>
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <div class="content" style="position:relative;">
+        <div style="color:#ffffff;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+            <p style="font-family: 'Montserrat', sans-serif;">
+                The Panorama Glass Lodge, situated in the heart of Ireland, is a one-of-a-kind, luxurious hotel, which provides a breathtaking panoramic view of the surrounding landscape. It's an ideal getaway spot for those in search of peace, seclusion, and ture bueaty of nature. The lodge is comprised of several glass cabins, that are specifically designed to offer a nature-immersed experience without compromising any necessary amenities. With floor-to-ceiling windows, guests can take in the awe-inspiring beauty of the mountains, forests, and lakes from the comfort of their own private space.
+            </p>
+        </div>
+    </div>
+
+    <div class="bgimg-3">
+        <div class="caption">
+            <span class="border"
+                style="background-color:transparent;font-size:25px;color: #ffffff; font-family: 'Playfair Display', serif;">
+                <span class="title1B">Under The Northern Lights</span>
+            </span>
+        </div>
+    </div>
+
+    <div style="position:relative;">
+        <div style="color:#ffffff;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+            <p style="font-family: 'Montserrat', sans-serif;">
+                The interiors of the cabins are elegantly designed, with cozy furnishings and plush bedding that provide
+                a warm and inviting atmosphere. Each cabin is equipped with a private bathroom and a kitchenette,
+                allowing guests to prepare their meals and enjoy them while admiring the stunning views. In addition to
+                the comfortable cabins, the Panorama Glass Lodge also offers a range of activities and amenities for its
+                guests. Guests can take a dip in the outdoor hot tub, explore
+                the surrounding countryside on foot or by bike, or simply relax in the communal lounge area. <a href="#Images" class="imglnk"> Click here for more images.</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="bgimg-4">
+        <div class="caption">
+            <span class="border"
+                style="background-color:transparent;font-size:25px;color: #ffffff; font-family: 'Playfair Display', serif;">
+                <a href="https://rorbuer.no/" style="text-decoration:none; color:inherit;" target="_blank">
+                    <span class="title2A">2. Eliassen Rorbuer</span>
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <div class="content" style="position:relative;">
+        <div style="color:#ffffff;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+            <p style="font-family: 'Montserrat', sans-serif;">
+                The oldest fisherman's cottage resort in the Lofoten Islands offers traditional and modern fisherman's cottages, sea house apartments, and a restaurant. Guests can experience spectacular nature, silence,
+                midnight sun, northern lights, storms, breathtaking sea, fjord, and mountain views of the famous
+                Reinefjord, fishing boats, and red fishermen's cottages. Many of the cottages have been renovated while
+                preserving their original character and décor, and each cottage
+                comes with a fully equipped kitchen, a large living and dining room, a bathroom, and high-speed free
+                Wi-Fi. The restaurant Gadus serves high-quality local food with an Italian twist. Guests can take
+                memorable pictures from the Hamnøy bridge, climb the famous mountains Reinebringen or Ryten, join a
+                local fisherman to catch their first cod, or try other outdoor activities with one of the local
+                partners. The opportunities here are endless both in summer and winter.
+            </p>
+        </div>
+    </div>
+
+    <div class="bgimg-5">
+        <div class="caption">
+            <span class="border"
+                style="background-color:transparent;font-size:25px;color: #ffffff; font-family: 'Playfair Display', serif;">
+                <span class="title2B">Chase the Northern Lights</span>
+            </span>
+        </div>
+    </div>
+
+    <div style="position:relative;">
+        <div style="color:#ffffff;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+            <p style="font-family: 'Montserrat', sans-serif;">
+                It is a spectacular destination with a unique blend of natural wonders and outdoor activities. Killer
+                whales have been spotted here for six consecutive seasons, and visitors can enjoy the magical Northern
+                Lights for an astonishing 182 days a year, as well as bask in the Midnight Sun for 49 days. The
+                geographical location of the lodge offers exciting adventures such as kayaking, skiing, and hiking,
+                making it an all-in-one package for travelers seeking an unforgettable
+                experience. Whether you're an adventure enthusiast or simply seeking a peaceful escape, the Elisassen
+                Rorbuer Lodge is the perfect getaway to create memories that will last a lifetime. <a href="#Images" class="imglnk"> Click here for more images</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="bgimg-6">
+        <div class="caption">
+            <span class="border"
+                style="background-color:transparent;font-size:25px;color: #ffffff; font-family: 'Playfair Display', serif;">
+                <a href="https://www.tromsoicedomes.com/" style="text-decoration:none; color:inherit;" target="_blank">
+                    <span class="title3A">3. Tromsø's Ice Domes</span>
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <div class="content" style="position:relative;">
+        <div style="color:#ffffff;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+            <p style="font-family: 'Montserrat', sans-serif;">
+                Tromsø's Ice Domes is a magical attraction located in the Arctic wilderness of Norway. It's an experience that is unique and unforgettable. As soon as visitors arrive, they are greeted by a winter
+                wonderland surrounded by snow-capped mountains and frozen lakes. The domes are built every year using
+                only ice and snow, and each one is a stunning masterpiece. The ice domes consist of a large ice bar, ice
+                sculptures, an ice cinema, and ice hotel rooms. Visitors can enjoy a drink in the ice bar, marvel at the
+                intricate ice sculptures, watch a movie in the ice cinema, and even spend the night in one of the ice
+                hotel rooms. The rooms are kept at a constant temperature of -5°C, and guests are provided with warm
+                sleeping bags to ensure a comfortable night's sleep.
+            </p>
+        </div>
+    </div>
+
+    <div class="bgimg-7">
+        <div class="caption">
+            <span class="border"
+                style="background-color:transparent;font-size:25px;color: #ffffff; font-family: 'Playfair Display', serif;">
+                <span class="title3B">The Most Original Hotel For Northern Lights</span>
+            </span>
+        </div>
+    </div>
+
+    <div style="position:relative;">
+        <div style="color:#ffffff;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+            <p style="font-family: 'Montserrat', sans-serif;">
+                The entire experience is designed to give visitors a taste of life in the Arctic. They can learn about
+                the local culture and traditions while surrounded by the breathtaking beauty of the Arctic wilderness.
+                Visitors can also take part in a range of activities such as dog sledding, snowmobiling, snowshoeing,
+                and even reindeer sledding. Tromsø's Ice Domes is an experience that shouldn't be missed. It's a unique
+                opportunity to step into a winter wonderland and experience the
+                magic of the Arctic. Whether you're looking for adventure or simply want to escape the hustle and bustle
+                of everyday life, the ice domes offer an unforgettable experience that will stay with you forever. <a href="#Images" class="imglnk"> Click here for more images.</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="bgimg-8" id="Images">
+        <div class="caption">
+            <span class="border"
+                style="background-color:#292b2d;font-size:25px;color: #ffffff; font-family: 'Playfair Display', serif;">
+                <span class="last">
+                    <a href="Images.html" style="text-decoration: none; color: #ffffff;">
+                        Image Gallery
+                    </a>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="bgimg-1">
+        <div class="caption">
+            <span class="border" style="font-family: 'Playfair Display', serif;">
+                <span class="ayush">
+                    <span class="animate">
+                        Made by Ayush
+                    </span>
+                </span>
+                
+            </span>
+        </div>
+    </div>
+    
+</body>
+
+</html>
